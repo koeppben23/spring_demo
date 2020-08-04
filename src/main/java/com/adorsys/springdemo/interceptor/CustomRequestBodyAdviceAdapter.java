@@ -24,9 +24,13 @@ public class CustomRequestBodyAdviceAdapter extends RequestBodyAdviceAdapter {
         return true;
     }
 
-    public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+    /**
+     * The default implementation returns the body that was passed in.
+     */
+    @Override
+    public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter,
+                                Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         loggingService.logRequest(httpServletRequest, body);
-
         return body;
     }
 }

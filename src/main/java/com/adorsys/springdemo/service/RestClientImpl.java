@@ -16,7 +16,7 @@ public class RestClientImpl implements RestClient {
     RestTemplate restTemplate;
 
     @Override
-    public List<ToDo> getTodDos() {
+    public List<ToDo> getToDos() {
         ToDo[] toDos = restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos", ToDo[].class);
         return Arrays.asList(toDos).stream().map(e -> {
             e.setTitle("I am changed");

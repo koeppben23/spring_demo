@@ -16,6 +16,6 @@ public class ToDoController {
 
     @GetMapping("/todos")
     public List<ToDo> getToDos() {
-        return restClient.getTodDos();
+        return restClient.getToDos();
     }
 }
